@@ -194,44 +194,42 @@ CSS
     }
 
     nav.nav-menu {
-        display: none; /* Oculto por defecto, JS lo cambiará */
-        position: fixed; /* Fijo en la pantalla, se superpone al contenido */
-        top: var(--header-height); /* Comienza justo debajo de la barra del header */
-        left: 0;
-        width: 100%; /* Ancho completo de la pantalla */
-        height: calc(100vh - var(--header-height)); /* Alto completo del área visible restante */
-        background-color: var(--background-color); /* Fondo sólido para el menú */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra para darle profundidad */
-        z-index: 1050; /* Por debajo del botón hamburguesa, pero encima del contenido principal */
-        
-        overflow-y: auto; /* Permite scroll vertical DENTRO del menú si los ítems exceden la altura */
-        
-        /* Opcional: Transiciones para una aparición más suave */
-        /* opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease-out, visibility 0s linear 0.3s, transform 0.3s ease-out; */
-    }
-    
-    nav.nav-menu.nav-menu--visible {
-        display: flex; /* Usamos flex para controlar la disposición interna del ul */
-        flex-direction: column; /* El ul se estirará verticalmente */
-        /* opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        transition: opacity 0.3s ease-out, visibility 0s linear 0s, transform 0.3s ease-out; */
-    }
+    display: none; /* Fundamental: oculto por defecto */
+    /* Todas las demás propiedades se definirán cuando sea visible para simplificar */
+}
+
+nav.nav-menu.nav-menu--visible {
+    display: block !important; /* ¡Importante! para forzar la visualización */
+    position: fixed !important;
+    top: 50px !important; /* Un valor fijo y obvio desde arriba */
+    left: 10% !important; /* Un valor fijo y obvio desde la izquierda */
+    width: 80% !important; /* Un ancho obvio */
+    height: 300px !important; /* Una altura obvia */
+    background-color: red !important; /* Un color de fondo muy visible */
+    z-index: 9999 !important; /* Un z-index extremadamente alto para asegurar que esté encima */
+    padding: 20px;
+    overflow: auto; /* Por si el contenido interno se desborda */
+}
 
     /* Estructura interna del menú desplegable */
-    nav.nav-menu ul {
-        list-style: none;
-        padding: 0; /* Quitamos padding por defecto del ul */
-        margin: 0; /* Quitamos margen por defecto del ul */
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        /* align-items: center; No es necesario si los 'li' o 'a' ocupan el 100% del ancho */
-    }
+    nav.nav-menu.nav-menu--visible ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.nav-menu.nav-menu--visible ul li a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    color: white;
+    text-decoration: none;
+}
+
+nav.nav-menu.nav-menu--visible ul li:last-child a {
+    border-bottom: none;
+}
 
     nav.nav-menu ul li {
         margin: 0; /* Sin márgenes entre los li */
