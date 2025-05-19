@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación - [Nombre de tu Negocio]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="Logo de [Nombre de tu Negocio]" id="logo">
+                </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="pagina-contenido">
+            <div class="container">
+                <h2>Encuéntranos</h2>
+                <p>Estamos ubicados en el corazón de La Almunia de Doña Godina, un lugar accesible y con encanto.</p>
+                <p><strong>Dirección:</strong> Plaza del Jardín 5, 50100 La Almunia de Doña Godina, Zaragoza, España</p>
+
+                <div class="mapa-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.894851299852!2d-1.2792140235461868!3d41.47509347129864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd590f216e416c9b%3A0x6b8496f9e1832909!2sPlaza%20del%20Jard%C3%ADn%2C%205%2C%2050100%20La%20Almunia%20de%20Do%C3%B1a%20Godina%2C%20Zaragoza%2C%20Spain!5e0!3m2!1sen!2sus!4v1716135995591!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

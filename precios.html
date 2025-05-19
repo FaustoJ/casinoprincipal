@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - [Nombre de tu Negocio]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="Logo de [Nombre de tu Negocio]" id="logo">
+                </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="pagina-contenido">
+            <div class="container">
+                <h2>Nuestros Precios y Paquetes</h2>
+                <p>[Aquí puedes detallar tus precios. Puedes hacerlo mediante tablas, listas o descripciones de paquetes. Sé claro y transparente. Si los precios varían mucho, puedes indicar "Precios desde..." o "Solicitar presupuesto personalizado".]</p>
+                
+                <article class="precio-item">
+                    <h3>Alquiler de Salón Principal (por día)</h3>
+                    <p><strong>Precio:</strong> [XXX]€</p>
+                    <p>Incluye: [Lista de lo que incluye]</p>
+                </article>
+
+                <article class="precio-item">
+                    <h3>Paquete Boda Esencial</h3>
+                    <p><strong>Precio:</strong> [XXXX]€</p>
+                    <p>Incluye: [Lista de lo que incluye el paquete de boda]</p>
+                </article>
+
+                <article class="precio-item">
+                    <h3>Servicios Adicionales</h3>
+                    <ul>
+                        <li>Decoración personalizada: Consultar</li>
+                        <li>Servicio de Catering (por persona): Desde [XX]€</li>
+                        <li>Música y DJ: Consultar</li>
+                    </ul>
+                </article>
+                <p>Para un presupuesto detallado y adaptado a tus necesidades, por favor <a href="contacto.html">contacta con nosotros</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal - Casino Principal Eventos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="Logo de Casino Principal Eventos" id="logo">
+                </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Eventos y Espacios Únicos para tus Celebraciones</h1>
+                <p>Creamos momentos inolvidables y te ofrecemos el lugar perfecto.</p>
+            </div>
+        </section>
+
+        <section id="servicios-destacados">
+            <div class="container">
+                <h2>Descubre lo que Ofrecemos</h2>
+                <div class="servicios-grid">
+                    <div class="servicio-card">
+                        <a href="eventos.html">
+                            <img src="images/imagen-principal-eventos.jpg" alt="Celebración de eventos como bodas, bautizos, comuniones">
+                            <h3>Celebración de Eventos</h3>
+                            <p>Bodas, bautizos, comuniones y más. Hacemos tu sueño realidad.</p>
+                        </a>
+                    </div>
+                    <div class="servicio-card">
+                        <a href="alquiler.html">
+                            <img src="images/imagen-principal-alquiler.jpg" alt="Alquiler de espacio para cumpleaños, cenas de empresa">
+                            <h3>Alquiler de Espacios</h3>
+                            <p>El lugar ideal para tus cumpleaños, cenas de empresa o reuniones.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
+            <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

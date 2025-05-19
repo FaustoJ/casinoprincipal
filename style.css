@@ -1,0 +1,414 @@
+/* --- Variables y Estilos Base --- */
+:root {
+    --background-color: #FAF5EA; /* Color base de tu logo */
+    --text-color: #5D534A;       /* Marrón oscuro para texto */
+    --primary-color: #B08D57;    /* Marrón medio/dorado para acentos y enlaces */
+    --secondary-color: #EAE0D5;  /* Beige más oscuro para fondos sutiles/bordes */
+    --footer-bg-color: #4A4035;  /* Marrón oscuro para el fondo del footer */
+    --light-text-color: #FFFFFF; /* Blanco para texto sobre fondos oscuros */
+    --container-width: 960px;
+    --header-height: 90px;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color); /* Usando el nuevo fondo */
+    color: var(--text-color); /* Usando el nuevo color de texto */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+main {
+    flex-grow: 1; /* Hace que el main ocupe el espacio disponible */
+    padding-top: 20px; /* Espacio después del header */
+    padding-bottom: 40px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8em;
+}
+h1 { font-size: 2.8rem; text-align: center; margin-top: 0;}
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 1.5em;}
+h3 { font-size: 1.8rem; }
+
+/* --- Encabezado y Navegación --- */
+header {
+    background-color: var(--background-color);/* Se cambiará con la nueva paleta */
+    padding: 10px 0; /* Ajusta el padding si es necesario */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height); /* Usamos la variable */
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    height: 70px; /* NUEVA ALTURA: Prueba con 65px o 70px, ajusta a tu gusto */
+    width: auto; /* Mantiene la proporción */
+}
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: 10px; /* Si usas texto e imagen */
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    color: var(--primary-color); /* Hover con el color primario */
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after { /* Subrayado animado para el hover */
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+nav ul li a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- Sección Hero (Página Principal) --- */
+#hero {
+    background-color: var(--secondary-color); /* Fondo suave para hero */
+    color: var(--text-color); /* Texto oscuro sobre fondo claro */
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+#hero h1 {
+    color: var(--primary-color); /* Texto más oscuro sobre fondo claro */
+    font-size: 2.8rem;
+    margin-bottom: 0.5em;
+}
+#hero p {
+    font-size: 1.3rem;
+}
+
+
+/* --- Servicios Destacados (Página Principal) --- */
+#servicios-destacados .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.servicio-card {
+    background-color: var(--light-text-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Para que la imagen no se salga si es más grande */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.servicio-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    border-radius: 8px 8px 0 0;
+}
+
+.servicio-card h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin: 15px 20px 10px;
+    text-align: left;
+}
+
+.servicio-card p {
+    font-size: 1rem;
+    padding: 0 20px 20px;
+    text-align: left;
+    min-height: 60px; /* Para alinear tarjetas con diferente texto */
+}
+
+/* --- Estilos para Páginas de Contenido General --- */
+.pagina-contenido {
+    padding: 20px 0;
+}
+.pagina-contenido h2 {
+    margin-bottom: 1em;
+}
+.pagina-contenido p, .pagina-contenido ul {
+    margin-bottom: 1.2em;
+    font-size: 1.1rem;
+}
+.pagina-contenido ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+.pagina-contenido .imagen-destacada {
+    width: 70%;
+    margin: 0 auto 30px auto; /* Centrada */
+    border: 3px solid var(--secondary-color);
+}
+
+/* --- Galería --- */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.galeria-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.galeria-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.galeria-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* --- Precios --- */
+.precio-item {
+    background-color: #fff; /* Fondo blanco o muy claro */
+    border: 1px solid var(--secondary-color); /* Borde con color secundario */
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+}
+.precio-item h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.precio-item strong {
+    font-weight: bold;
+}
+
+
+/* --- Formulario de Contacto --- */
+#contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+}
+.btn {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #8c6f41; /* Un marrón más oscuro para el hover */
+    text-decoration: none;
+}
+.contacto-info {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+}
+.contacto-info p {
+    margin-bottom: 0.5em;
+}
+#form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#form-status.success {
+    background-color: #e6ffed;
+    color: #006622;
+    border: 1px solid #99e6b3;
+}
+#form-status.error {
+    background-color: #ffe6e6;
+    color: #990000;
+    border: 1px solid #ffb3b3;
+}
+
+
+/* --- Mapa de Ubicación --- */
+.mapa-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    position: relative;
+    height: 0;
+    border: 3px solid var(--secondary-color);
+    border-radius: 8px;
+    margin: 30px 0;
+}
+.mapa-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+
+/* --- Pie de Página --- */
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto; /* Empuja el footer al final */
+}
+footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--secondary-color);
+}
+
+footer a:hover {
+    color: var(--light-text-color);
+}
+
+/* --- Media Queries para Responsividad (Ejemplo Básico) --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #logo { margin-bottom: 10px; }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Para que ocupe todo el ancho */
+    }
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    nav ul li a::after { display: none; /* Ocultar subrayado en móvil si se prefiere */ }
+
+    #hero h1 { font-size: 2.2rem; }
+    #hero p { font-size: 1.1rem; }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    .pagina-contenido .imagen-destacada {
+        width: 95%;
+    }
+}
