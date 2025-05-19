@@ -8,22 +8,27 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <a href="index.html" class="logo-link">
-                <img src="images/logo.png" alt="Logo de [Nombre de tu Negocio]" id="logo">
-                </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Principal</a></li>
-                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
-                    <li><a href="galeria.html">Galería</a></li>
-                    <li><a href="precios.html">Precios</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="ubicacion.html">Ubicación</a></li>
+    <div class="container header-container"> 
+
+        
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Principal</a></li>
+                <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
+        </nav>
+    </div>
+</header>
 
     <main>
         <section class="pagina-contenido">
@@ -53,6 +58,94 @@
     </footer>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</footer> <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('nav-menu--visible');
+                navToggle.classList.toggle('is-active'); // Para la animación de la X
+                
+                // Accesibilidad: Actualizar aria-expanded
+                const isExpanded = navMenu.classList.contains('nav-menu--visible');
+                navToggle.setAttribute('aria-expanded', isExpanded);
+                
+                // Opcional: Cambiar aria-label
+                if (isExpanded) {
+                    navToggle.setAttribute('aria-label', 'Cerrar menú');
+                } else {
+                    navToggle.setAttribute('aria-label', 'Abrir menú');
+                }
+            });
+
+            // Opcional: Cerrar menú si se hace clic en un enlace (para SPAs o si el menú ocupa pantalla completa)
+            // Si tu sitio es multipágina tradicional, esto puede no ser estrictamente necesario
+            // pero puede mejorar la experiencia si el menú es grande.
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('nav-menu--visible')) {
+                        navMenu.classList.remove('nav-menu--visible');
+                        navToggle.classList.remove('is-active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navToggle.setAttribute('aria-label', 'Abrir menú');
+                    }
+                });
+            });
+        }
+
+        // Para el año en el footer (si no lo tienes ya en cada página)
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+        
+        // Para el contador de caracteres del formulario (si no lo tienes ya en contacto.html)
+        const textarea = document.getElementById('descripcion');
+        const charCountSpan = document.getElementById('char-count');
+        if (textarea && charCountSpan) { // Verifica que ambos existan
+            textarea.addEventListener('input', function() {
+                charCountSpan.textContent = this.value.length;
+            });
+        }
+
+        // Para el manejo del formulario Formspree (si no lo tienes ya en contacto.html)
+        var form = document.getElementById("contact-form");
+        if (form) {
+            async function handleSubmit(event) {
+                event.preventDefault();
+                var status = document.getElementById("form-status");
+                var data = new FormData(event.target);
+                fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
+                        status.className = 'success';
+                        form.reset();
+                        if(charCountSpan) charCountSpan.textContent = 0; // Resetear contador
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                            } else {
+                                status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
+                            }
+                            status.className = 'error';
+                        })
+                    }
+                }).catch(error => {
+                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
+                    status.className = 'error';
+                });
+            }
+            form.addEventListener("submit", handleSubmit)
+        }
     </script>
 </body>
 </html>

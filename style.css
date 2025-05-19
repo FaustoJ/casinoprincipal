@@ -7,7 +7,7 @@
     --footer-bg-color: #4A4035;  /* Marrón oscuro para el fondo del footer */
     --light-text-color: #FFFFFF; /* Blanco para texto sobre fondos oscuros */
     --container-width: 960px;
-    --header-height: 90px;
+    --header-height: 70px;
 }
 
 body {
@@ -61,89 +61,184 @@ h3 { font-size: 1.8rem; }
 
 /* --- Encabezado y Navegación --- */
 header {
-    background-color: var(--background-color);/* Se cambiará con la nueva paleta */
-    padding: 10px 0; /* Ajusta el padding si es necesario */
+    background-color: var(--background-color);
+    padding: 0; /* El padding lo manejará el container */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: var(--header-height); /* Usamos la variable */
-    display: flex;
-    align-items: center;
+    height: var(--header-height);
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero-logo-container {
+    text-align: center; /* Esto puede quedarse, no interfiere */
+    margin-bottom: 25px; /* Espacio entre el logo y el título h1 */
 }
 
-#logo {
-    height: 70px; /* NUEVA ALTURA: Prueba con 65px o 70px, ajusta a tu gusto */
-    width: auto; /* Mantiene la proporción */
+
+#hero-logo {
+    display: block; /* Hace que la imagen se comporte como un bloque */
+    margin-left: auto; /* Centra el bloque horizontalmente */
+    margin-right: auto; /* Centra el bloque horizontalmente */
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid #000000;
 }
-.logo-link {
+
+/* Contenedor del header para alinear elementos */
+.header-container { /* Nueva clase */
     display: flex;
+    justify-content: center;
     align-items: center;
+    height: 100%; /* Para que ocupe toda la altura del header */
 }
-.logo-text {
-    font-size: 1.8rem;
+
+.site-name-link {
+    font-size: 1.6rem; /* Ajusta según tus preferencias */
     font-weight: bold;
     color: var(--primary-color);
-    margin-left: 10px; /* Si usas texto e imagen */
+    text-decoration: none;
 }
 
+/* Botón Hamburguesa */
+.nav-toggle {
+    display: none; /* Oculto en escritorio por defecto */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1101; /* Por encima del menú desplegable si es necesario */
+    margin-left: auto; /* Empuja a la derecha si es necesario */
+}
 
-nav ul {
+.hamburger-line {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Estilos para la navegación en escritorio */
+nav.nav-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: flex; /* Esto es para escritorio */
 }
 
-nav ul li {
-    color: var(--primary-color); /* Hover con el color primario */
-    text-decoration: none;
-    margin-left: 25px;
+nav.nav-menu ul li {
+    margin-left: 20px; /* Ajusta el espaciado para escritorio */
 }
-
-nav ul li a {
+nav.nav-menu ul li a {
     color: var(--text-color);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1rem; /* Ajusta si es necesario */
     padding: 5px 0;
     position: relative;
-}
-
-nav ul li a::after { /* Subrayado animado para el hover */
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--primary-color);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-nav ul li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-nav ul li a:hover {
-    color: var(--primary-color);
     text-decoration: none;
+
 }
+nav.nav-menu ul li a::after {
+content: '';
+position: absolute;
+width: 100%;
+transform: scaleX(0);
+height: 2px;
+bottom: -5px;
+left: 0;
+background-color: var(--primary-color);
+transform-origin: bottom right;
+transition: transform 0.25s ease-out;
+}
+nav.nav-menu ul li a:hover::after {
+transform: scaleX(1);
+transform-origin: bottom left;
+}
+nav.nav-menu ul li a:hover {
+color: var(--primary-color);
+}
+/* --- Media Queries para Responsividad (Navegación Móvil) --- */
+@media (max-width: 820px) { /* Ajusta este breakpoint si es necesario. 768px es común. */
+
+.header-container { /* Añadimos esta regla dentro de la media query */
+        justify-content: flex-end; /* Botón hamburguesa a la derecha en móvil */
+    }
+
+    .nav-toggle {
+        display: none; /* Mostrar botón hamburguesa en móvil */
+    }
+
+    nav.nav-menu {
+        display: none; /* Ocultar menú por defecto en móvil */
+        position: absolute;
+        top: var(--header-height); /* Justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color); /* O un color que prefieras para el menú desplegado */
+        box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        padding-top: 10px;
+        padding-bottom: 20px;
+        border-top: 1px solid var(--secondary-color); /* Línea sutil de separación */
+        z-index: 1100;
+    }
+    
+    nav.nav-menu.nav-menu--visible { /* Clase para mostrar menú */
+        display: block;
+    }
+
+    nav.nav-menu ul {
+        flex-direction: column; /* Apilar enlaces verticalmente */
+        align-items: center; /* Centrar texto de enlaces */
+        width: 100%;
+    }
+
+    nav.nav-menu ul li {
+        margin: 0; /* Quitar margen lateral */
+        width: 100%; /* Ocupar todo el ancho */
+    }
+
+    nav.nav-menu ul li a {
+        display: block; /* Para que ocupe todo el ancho del li */
+        padding: 15px 20px; /* Más padding para facilitar el toque */
+        text-align: center;
+        border-bottom: 1px solid var(--secondary-color); /* Separador entre ítems */
+        font-size: 1.1rem;
+    }
+    nav.nav-menu ul li:last-child a {
+        border-bottom: none; /* Quitar borde del último ítem */
+    }
+
+    nav.nav-menu ul li a::after {
+        display: none; /* Ocultar efecto de subrayado en móvil */
+    }
+
+    /* Animación del botón hamburguesa a "X" */
+    .nav-toggle.is-active .hamburger-line:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .nav-toggle.is-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.is-active .hamburger-line:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
 
 /* --- Sección Hero (Página Principal) --- */
 #hero {
-    background-color: var(--secondary-color); /* Fondo suave para hero */
-    color: var(--text-color); /* Texto oscuro sobre fondo claro */
-    padding: 60px 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    /* ANTES: padding: 60px 0; */
+    padding: 60px 0 30px 0; /* padding-top sigue 60px, padding-bottom reducido a 30px */
     text-align: center;
-    margin-bottom: 40px;
+    /* ANTES: margin-bottom: 40px; */
+    margin-bottom: 20px; /* margin-bottom reducido a 20px */
 }
 #hero h1 {
     color: var(--primary-color); /* Texto más oscuro sobre fondo claro */
