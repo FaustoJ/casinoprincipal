@@ -316,3 +316,83 @@ footer a:hover { color: var(--light-text-color); }
     .nav-toggle.is-active .hamburger-line:nth-child(2) { opacity: 0; }
     .nav-toggle.is-active .hamburger-line:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }
+
+/* --- Estilos para el Modal de Política de Privacidad --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Se queda fijo en la pantalla */
+    z-index: 2000; /* Encima de todo (asegúrate que sea mayor que el header y el nav-toggle) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite scroll si el contenido del modal es muy largo */
+    background-color: rgba(0,0,0,0.6); /* Fondo oscuro semitransparente */
+    padding-top: 60px; /* Espacio para que no pegue al borde superior */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centrado vertical (5%) y horizontal (auto) */
+    padding: 25px 30px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 700px; /* Ancho máximo */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Para el posicionamiento del botón de cierre */
+}
+
+.modal-close-button {
+    color: #aaa;
+    position: absolute; /* Posicionamiento absoluto respecto al .modal-content */
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-text-content {
+    max-height: 60vh; /* Altura máxima para el contenido de texto, luego scroll */
+    overflow-y: auto; /* Scroll vertical para el contenido de texto */
+    padding-right: 15px; /* Espacio para la barra de scroll si aparece */
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.modal-text-content p,
+.modal-text-content ul {
+    margin-bottom: 1em;
+}
+.modal-text-content ul {
+    padding-left: 20px;
+}
+.modal-text-content strong {
+    color: var(--text-color); /* O --primary-color si prefieres */
+}
+
+/* Enlace para abrir el modal */
+#open-privacy-policy {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--primary-color); /* O el color que prefieras para los enlaces */
+}
+#open-privacy-policy:hover {
+    text-decoration: none;
+}

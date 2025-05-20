@@ -33,7 +33,7 @@
                 <h2>Contacta con Nosotros</h2>
                 <p>¿Tienes alguna pregunta, quieres solicitar un presupuesto o simplemente contarnos tu idea? Rellena el siguiente formulario. ¡Estaremos encantados de atenderte en Casino Principal Eventos!</p>
                 
-                <form id="contact-form" action="https://formspree.io/f/mblobgng" method="POST">
+                <form id="contact-form" action="https://formspree.io/f/TU_ENDPOINT_DE_FORMSPREE" method="POST">
                     <div class="form-group">
                         <label for="nombre">Nombre Completo:</label>
                         <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre y apellidos">
@@ -53,8 +53,8 @@
                     </div>
                      <div class="form-group">
                         <input type="checkbox" id="privacidad" name="privacidad" value="aceptada" required>
-                        <label for="privacidad" style="display: inline; font-weight: normal;">He leído y acepto la <a href="#privacidad-modal" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</label> 
-                        </div>
+                        <label for="privacidad" style="display: inline; font-weight: normal;">He leído y acepto la <a href="#" id="open-privacy-policy" rel="noopener noreferrer">política de privacidad</a>.</label> 
+                    </div>
                     <button type="submit" class="btn">Enviar Solicitud</button>
                 </form>
                 <p id="form-status"></p>
@@ -62,6 +62,53 @@
         </section>
     </main>
 
+    <div id="privacyPolicyModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close-button" aria-label="Cerrar política de privacidad">&times;</button>
+            <h2>Política de Privacidad</h2>
+            <div class="modal-text-content">
+                <p><strong>Política de Privacidad para el Formulario de Contacto</strong></p>
+                <p>En Casino Principal Eventos, valoramos tu privacidad y nos comprometemos a proteger tus datos personales. La presente política de privacidad describe cómo recogemos, utilizamos y protegemos la información que nos proporcionas a través de nuestro formulario de contacto.</p>
+                <p><strong>1. Responsable del Tratamiento de Datos:</strong></p>
+                <ul>
+                    <li><strong>Nombre:</strong> Casino Principal Eventos</li>
+                    <li><strong>Correo electrónico de contacto:</strong> casinoprincipaleventos@gmail.com</li>
+                </ul>
+                <p><strong>2. Finalidad del Tratamiento de Datos:</strong></p>
+                <p>Los datos personales (nombre, correo electrónico, número de teléfono opcional y descripción de la solicitud) que nos facilitas a través del formulario de contacto serán utilizados exclusivamente para las siguientes finalidades:</p>
+                <ul>
+                    <li>Gestionar y responder a tu consulta, solicitud de información o presupuesto.</li>
+                    <li>Mantener la comunicación necesaria para atender tu petición.</li>
+                    <li>Realizar un seguimiento de la consulta para asegurar tu satisfacción.</li>
+                </ul>
+                <p>No utilizaremos tus datos para el envío de comunicaciones comerciales no solicitadas, a menos que obtengamos tu consentimiento explícito previo para ello.</p>
+                <p><strong>3. Legitimación para el Tratamiento:</strong></p>
+                <p>La base legal para el tratamiento de tus datos es tu consentimiento explícito, que otorgas al marcar la casilla de aceptación de esta política de privacidad antes de enviar el formulario y al proceder con el envío del mismo.</p>
+                <p><strong>4. Conservación de los Datos:</strong></p>
+                <p>Tus datos personales serán conservados durante el tiempo estrictamente necesario para cumplir con la finalidad para la que fueron recabados (atender tu consulta y las gestiones derivadas de ella) y, posteriormente, durante los plazos legalmente establecidos para la atención de posibles responsabilidades nacidas del tratamiento. Una vez transcurridos dichos plazos, los datos serán suprimidos de forma segura.</p>
+                <p><strong>5. Destinatarios de los Datos:</strong></p>
+                <p>Casino Principal Eventos no cederá tus datos personales a terceros, salvo que exista una obligación legal que así lo requiera o que sea estrictamente necesario para la prestación del servicio solicitado (por ejemplo, si se debe coordinar con un proveedor externo bajo tu consentimiento). En tales casos, se te informará debidamente.</p>
+                <p><strong>6. Derechos del Interesado:</strong></p>
+                <p>Como titular de los datos, tienes derecho a:</p>
+                <ul>
+                    <li>Acceder a tus datos personales.</li>
+                    <li>Solicitar la rectificación de los datos inexactos.</li>
+                    <li>Solicitar la supresión de tus datos, cuando, entre otros motivos, ya no sean necesarios para los fines que fueron recogidos.</li>
+                    <li>Solicitar la limitación del tratamiento de tus datos.</li>
+                    <li>Oponerte al tratamiento de tus datos.</li>
+                    <li>Solicitar la portabilidad de tus datos.</li>
+                </ul>
+                <p>Puedes ejercer estos derechos enviando un correo electrónico a <a href="mailto:casinoprincipaleventos@gmail.com">casinoprincipaleventos@gmail.com</a>, indicando claramente el derecho que deseas ejercer y adjuntando una copia de tu DNI o documento identificativo equivalente para verificar tu identidad.</p>
+                <p><strong>7. Seguridad de los Datos:</strong></p>
+                <p>Casino Principal Eventos ha adoptado las medidas técnicas y organizativas necesarias para garantizar la seguridad de tus datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado.</p>
+                <p><strong>8. Autoridad de Control:</strong></p>
+                <p>Si consideras que tus derechos en materia de protección de datos han sido vulnerados, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) a través de su sede electrónica o por otros medios que la Agencia habilite.</p>
+                <p><strong>9. Cambios en la Política de Privacidad:</strong></p>
+                <p>Casino Principal Eventos se reserva el derecho a modificar la presente política para adaptarla a novedades legislativas o jurisprudenciales. Cualquier modificación será debidamente publicada en este sitio web.</p>
+                <p><em>Fecha de última actualización: 20 de mayo de 2025</em></p>
+            </div>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <p>© <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
@@ -111,7 +158,13 @@
         }
 
         // Scripts específicos para contacto.html
-        if (document.body.contains(document.getElementById('descripcion'))) {
+        // Asegurarse que los elementos del DOM existen antes de añadir listeners
+        const contactForm = document.getElementById('contact-form');
+        const privacyPolicyModal = document.getElementById('privacyPolicyModal');
+        const openPolicyLink = document.getElementById('open-privacy-policy');
+        
+        if (contactForm) { // Implica que estamos en contacto.html o una página con estos elementos
+            // Script del contador de caracteres
             const textarea = document.getElementById('descripcion');
             const charCountSpan = document.getElementById('char-count');
             if (textarea && charCountSpan) {
@@ -119,40 +172,73 @@
                     charCountSpan.textContent = this.value.length;
                 });
             }
-        }
 
-        if (document.body.contains(document.getElementById('contact-form'))) {
-            var form = document.getElementById("contact-form");
-            if (form) {
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("form-status");
-                    var data = new FormData(event.target);
-                    var charCountSpanForForm = document.getElementById('char-count');
-                    fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: { 'Accept': 'application/json' }
-                    }).then(response => {
-                        if (response.ok) {
-                            status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
-                            status.className = 'success';
-                            form.reset();
-                            if(charCountSpanForForm) charCountSpanForForm.textContent = 0;
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                } else { status.innerHTML = "Oops! Hubo un problema al enviar tu formulario."; }
-                                status.className = 'error';
-                            })
-                        }
-                    }).catch(error => {
-                        status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                        status.className = 'error';
+            // Script del formulario Formspree
+            async function handleSubmit(event) {
+                event.preventDefault();
+                var status = document.getElementById("form-status");
+                var data = new FormData(event.target);
+                var charCountSpanForForm = document.getElementById('char-count'); // Para resetearlo
+                fetch(event.target.action, {
+                    method: contactForm.method, // Usar contactForm en lugar de form
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
+                        status.className = 'success';
+                        contactForm.reset(); // Usar contactForm en lugar de form
+                        if(charCountSpanForForm) charCountSpanForForm.textContent = 0;
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                            } else { status.innerHTML = "Oops! Hubo un problema al enviar tu formulario."; }
+                            status.className = 'error';
+                        })
+                    }
+                }).catch(error => {
+                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
+                    status.className = 'error';
+                });
+            }
+            contactForm.addEventListener("submit", handleSubmit);
+
+            // SCRIPT PARA EL MODAL DE POLÍTICA DE PRIVACIDAD
+            if (openPolicyLink && privacyPolicyModal) {
+                const closePolicyButton = privacyPolicyModal.querySelector('.modal-close-button');
+
+                if(closePolicyButton) { // Asegurarse que el botón de cierre también exista
+                    openPolicyLink.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        privacyPolicyModal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
                     });
+
+                    closePolicyButton.addEventListener('click', function() {
+                        privacyPolicyModal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    });
+
+                    window.addEventListener('click', function(event) {
+                        if (event.target == privacyPolicyModal) {
+                            privacyPolicyModal.style.display = 'none';
+                            document.body.style.overflow = '';
+                        }
+                    });
+
+                    window.addEventListener('keydown', function(event) {
+                        if (event.key === 'Escape' && privacyPolicyModal.style.display === 'block') {
+                            privacyPolicyModal.style.display = 'none';
+                            document.body.style.overflow = '';
+                        }
+                    });
+                } else {
+                    console.error("Botón de cierre del modal no encontrado.");
                 }
-                form.addEventListener("submit", handleSubmit)
+            } else {
+                 if (!openPolicyLink) console.error("Enlace para abrir política de privacidad no encontrado (ID: open-privacy-policy).");
+                 if (!privacyPolicyModal) console.error("Elemento del modal de política de privacidad no encontrado (ID: privacyPolicyModal).");
             }
         }
     </script>
