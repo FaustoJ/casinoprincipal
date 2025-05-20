@@ -3,57 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubicación - [Nombre de tu Negocio]</title>
+    <title>Ubicación - Casino Principal Eventos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-    <div class="container header-container"> 
-
-        
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Principal</a></li>
-                <li><a href="nosotros.html">Saber más de nosotros</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="precios.html">Precios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
+        <div class="container header-container">
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="pagina-contenido">
             <div class="container">
-                <h2>Encuéntranos</h2>
-                <p>Estamos ubicados en el corazón de La Almunia de Doña Godina, un lugar accesible y con encanto.</p>
+                <h2>Encuéntranos Fácilmente</h2>
+                <p>Casino Principal Eventos está situado en un lugar céntrico y accesible en La Almunia de Doña Godina, perfecto para que tus invitados lleguen sin complicaciones.</p>
                 <p><strong>Dirección:</strong> Plaza del Jardín 5, 50100 La Almunia de Doña Godina, Zaragoza, España</p>
 
                 <div class="mapa-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.894851299852!2d-1.2792140235461868!3d41.47509347129864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd590f216e416c9b%3A0x6b8496f9e1832909!2sPlaza%20del%20Jard%C3%ADn%2C%205%2C%2050100%20La%20Almunia%20de%20Do%C3%B1a%20Godina%2C%20Zaragoza%2C%20Spain!5e0!3m2!1sen!2sus!4v1716135995591!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.894851299852!2d-1.2792140235461868!3d41.47509347129864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd590f216e416c9b%3A0x6b8496f9e1832909!2sPlaza%20del%20Jard%C3%ADn%2C%205%2C%2050100%20La%20Almunia%20de%20Do%C3%B1a%20Godina%2C%20Zaragoza%2C%20Spain!5e0!3m2!1sen!2sus!4v1716135995591!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de Google con la ubicación de Casino Principal Eventos"></iframe>
                 </div>
+                 <h3>Cómo llegar:</h3>
+                <p>Fácil acceso desde la Autovía A-2. Disponemos de zonas de aparcamiento cercanas. Si vienes en transporte público, la parada de autobús [Nombre de la línea/parada] está a solo 5 minutos a pie.</p>
+                <h3>Puntos de Interés Cercanos (Opcional):</h3>
+                <ul>
+                    <li>[Iglesia de Nuestra Señora de la Asunción]</li>
+                    <li>[Ayuntamiento de La Almunia de Doña Godina]</li>
+                    <li>[Parque o zona verde cercana]</li>
+                </ul>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>© <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
             <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
         </div>
     </footer>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</footer> <script>
+        // Script del Menú Hamburguesa
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -67,81 +71,30 @@
                 
                 if (isExpanded) {
                     navToggle.setAttribute('aria-label', 'Cerrar menú');
-                    document.body.style.overflow = 'hidden'; // Deshabilitar scroll del body
+                    document.body.style.overflow = 'hidden';
                 } else {
                     navToggle.setAttribute('aria-label', 'Abrir menú');
-                    document.body.style.overflow = ''; // Habilitar scroll del body
+                    document.body.style.overflow = '';
                 }
             });
 
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('nav-menu--visible')) {
-                        navMenu.classList.remove('nav-menu--visible');
-                        navToggle.classList.remove('is-active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navToggle.setAttribute('aria-label', 'Abrir menú');
-                        document.body.style.overflow = ''; // Habilitar scroll del body al cerrar con enlace
+                    if (window.innerWidth <= 820 && navMenu.classList.contains('nav-menu--visible')) {
+                         navMenu.classList.remove('nav-menu--visible');
+                         navToggle.classList.remove('is-active');
+                         navToggle.setAttribute('aria-expanded', 'false');
+                         navToggle.setAttribute('aria-label', 'Abrir menú');
+                         document.body.style.overflow = '';
                     }
                 });
             });
         }
 
-        // Script del año en el footer
+        // Script del Año
         const yearSpan = document.getElementById('year');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
-        }
-        
-        // Script del contador de caracteres (solo en contacto.html)
-        if (document.body.contains(document.getElementById('descripcion'))) { // Ejecutar solo si existe el textarea
-            const textarea = document.getElementById('descripcion');
-            const charCountSpan = document.getElementById('char-count');
-            if (textarea && charCountSpan) {
-                textarea.addEventListener('input', function() {
-                    charCountSpan.textContent = this.value.length;
-                });
-            }
-        }
-
-        // Script del formulario Formspree (solo en contacto.html)
-        if (document.body.contains(document.getElementById('contact-form'))) { // Ejecutar solo si existe el formulario
-            var form = document.getElementById("contact-form");
-            if (form) {
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("form-status");
-                    var data = new FormData(event.target);
-                    var charCountSpanForForm = document.getElementById('char-count'); // Para resetearlo
-                    fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                            status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
-                            status.className = 'success';
-                            form.reset();
-                            if(charCountSpanForForm) charCountSpanForForm.textContent = 0;
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                } else {
-                                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                                }
-                                status.className = 'error';
-                            })
-                        }
-                    }).catch(error => {
-                        status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                        status.className = 'error';
-                    });
-                }
-                form.addEventListener("submit", handleSubmit)
-            }
         }
     </script>
 </body>

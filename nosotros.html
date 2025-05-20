@@ -3,48 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saber más de nosotros - [Nombre de tu Negocio]</title>
+    <title>Saber más de nosotros - Casino Principal Eventos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-    <div class="container header-container"> 
-
-        
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Principal</a></li>
-                <li><a href="nosotros.html">Saber más de nosotros</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="precios.html">Precios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
+        <div class="container header-container">
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="pagina-contenido">
             <div class="container">
                 <h2>Nuestra Historia y Compromiso</h2>
-                <p>[Escribe aquí sobre tu negocio. Cuándo empezó, cuál es vuestra misión, vuestros valores, quién forma el equipo (si quieres), qué os hace especiales. Intenta conectar con tus futuros clientes.]</p>
-                <p>[Puedes añadir otra sección sobre vuestra experiencia o filosofía de trabajo.]</p>
+                <p>En Casino Principal Eventos, llevamos más de X años dedicándonos a convertir sueños en realidad. Nacimos de la pasión por crear eventos únicos y ofrecer espacios con alma donde cada celebración se sienta personal y memorable.</p>
+                <p>Creemos en la atención al detalle, en la escucha activa de nuestros clientes y en la flexibilidad para adaptarnos a cada necesidad. Nuestro equipo de profesionales trabaja con dedicación para asegurar que todo salga perfecto.</p>
                 <h3>Nuestra Misión</h3>
-                <p>Nuestra misión es convertir cada celebración en una experiencia única e inolvidable, ofreciendo servicios personalizados y espacios con encanto, adaptados a las necesidades y sueños de nuestros clientes.</p>
+                <p>Nuestra misión es ser el referente en La Almunia y alrededores para la organización de eventos inolvidables y el alquiler de espacios versátiles, superando las expectativas de nuestros clientes a través de un servicio excepcional y personalizado.</p>
                  <h3>¿Por qué elegirnos?</h3>
                 <ul>
-                    <li>Experiencia y profesionalidad.</li>
-                    <li>Atención personalizada y cercana.</li>
-                    <li>Espacios versátiles y bien equipados.</li>
-                    <li>Pasión por los detalles.</li>
-                    <li>Compromiso con la satisfacción del cliente.</li>
+                    <li>Experiencia y profesionalidad contrastada.</li>
+                    <li>Atención 100% personalizada y cercana desde el primer contacto.</li>
+                    <li>Espacios únicos, versátiles y completamente equipados.</li>
+                    <li>Pasión por los detalles que marcan la diferencia.</li>
+                    <li>Compromiso total con la satisfacción de nuestros clientes.</li>
+                    <li>Ubicación privilegiada y de fácil acceso.</li>
                 </ul>
             </div>
         </section>
@@ -52,14 +50,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>© <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
             <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
         </div>
     </footer>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</footer> <script>
+        // Script del Menú Hamburguesa
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -73,81 +70,30 @@
                 
                 if (isExpanded) {
                     navToggle.setAttribute('aria-label', 'Cerrar menú');
-                    document.body.style.overflow = 'hidden'; // Deshabilitar scroll del body
+                    document.body.style.overflow = 'hidden';
                 } else {
                     navToggle.setAttribute('aria-label', 'Abrir menú');
-                    document.body.style.overflow = ''; // Habilitar scroll del body
+                    document.body.style.overflow = '';
                 }
             });
 
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('nav-menu--visible')) {
-                        navMenu.classList.remove('nav-menu--visible');
-                        navToggle.classList.remove('is-active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navToggle.setAttribute('aria-label', 'Abrir menú');
-                        document.body.style.overflow = ''; // Habilitar scroll del body al cerrar con enlace
+                    if (window.innerWidth <= 820 && navMenu.classList.contains('nav-menu--visible')) {
+                         navMenu.classList.remove('nav-menu--visible');
+                         navToggle.classList.remove('is-active');
+                         navToggle.setAttribute('aria-expanded', 'false');
+                         navToggle.setAttribute('aria-label', 'Abrir menú');
+                         document.body.style.overflow = '';
                     }
                 });
             });
         }
 
-        // Script del año en el footer
+        // Script del Año
         const yearSpan = document.getElementById('year');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
-        }
-        
-        // Script del contador de caracteres (solo en contacto.html)
-        if (document.body.contains(document.getElementById('descripcion'))) { // Ejecutar solo si existe el textarea
-            const textarea = document.getElementById('descripcion');
-            const charCountSpan = document.getElementById('char-count');
-            if (textarea && charCountSpan) {
-                textarea.addEventListener('input', function() {
-                    charCountSpan.textContent = this.value.length;
-                });
-            }
-        }
-
-        // Script del formulario Formspree (solo en contacto.html)
-        if (document.body.contains(document.getElementById('contact-form'))) { // Ejecutar solo si existe el formulario
-            var form = document.getElementById("contact-form");
-            if (form) {
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("form-status");
-                    var data = new FormData(event.target);
-                    var charCountSpanForForm = document.getElementById('char-count'); // Para resetearlo
-                    fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                            status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
-                            status.className = 'success';
-                            form.reset();
-                            if(charCountSpanForForm) charCountSpanForForm.textContent = 0;
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                } else {
-                                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                                }
-                                status.className = 'error';
-                            })
-                        }
-                    }).catch(error => {
-                        status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                        status.className = 'error';
-                    });
-                }
-                form.addEventListener("submit", handleSubmit)
-            }
         }
     </script>
 </body>

@@ -3,74 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precios - [Nombre de tu Negocio]</title>
+    <title>Precios - Casino Principal Eventos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-    <div class="container header-container"> 
-
-        
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Principal</a></li>
-                <li><a href="nosotros.html">Saber más de nosotros</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="precios.html">Precios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
+        <div class="container header-container">
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="pagina-contenido">
             <div class="container">
                 <h2>Nuestros Precios y Paquetes</h2>
-                <p>[Aquí puedes detallar tus precios. Puedes hacerlo mediante tablas, listas o descripciones de paquetes. Sé claro y transparente. Si los precios varían mucho, puedes indicar "Precios desde..." o "Solicitar presupuesto personalizado".]</p>
+                <p>En Casino Principal Eventos ofrecemos una variedad de opciones para adaptarnos a tus necesidades y presupuesto. A continuación, te presentamos algunas de nuestras tarifas orientativas. Para un presupuesto detallado y personalizado, no dudes en <a href="contacto.html">contactarnos</a>.</p>
                 
                 <article class="precio-item">
-                    <h3>Alquiler de Salón Principal (por día)</h3>
-                    <p><strong>Precio:</strong> [XXX]€</p>
-                    <p>Incluye: [Lista de lo que incluye]</p>
+                    <h3>Alquiler de Salón Principal (Día completo)</h3>
+                    <p><strong>Precio desde:</strong> [XXX]€</p>
+                    <p>Incluye: Uso exclusivo del salón, mobiliario básico (mesas y sillas para X personas), limpieza estándar, acceso a aseos. Ideal para bodas, grandes celebraciones o eventos corporativos.</p>
                 </article>
 
                 <article class="precio-item">
-                    <h3>Paquete Boda Esencial</h3>
-                    <p><strong>Precio:</strong> [XXXX]€</p>
-                    <p>Incluye: [Lista de lo que incluye el paquete de boda]</p>
+                    <h3>Alquiler de Espacio para Cumpleaños (4 horas)</h3>
+                    <p><strong>Precio desde:</strong> [YYY]€</p>
+                    <p>Incluye: Espacio reservado, mesas y sillas, acceso a zona de juegos (si aplica), limpieza. Perfecto para celebraciones infantiles o reuniones más informales.</p>
+                </article>
+                
+                <article class="precio-item">
+                    <h3>Paquete Celebración Bautizo/Comunión</h3>
+                    <p><strong>Precio por persona desde:</strong> [ZZ]€ (mínimo X personas)</p>
+                    <p>Incluye: Alquiler del espacio, menú adaptado (varias opciones), decoración básica, tarta conmemorativa. Consúltanos para personalizar tu paquete.</p>
                 </article>
 
                 <article class="precio-item">
                     <h3>Servicios Adicionales</h3>
                     <ul>
-                        <li>Decoración personalizada: Consultar</li>
-                        <li>Servicio de Catering (por persona): Desde [XX]€</li>
-                        <li>Música y DJ: Consultar</li>
+                        <li>Decoración personalizada y temática: Según proyecto.</li>
+                        <li>Servicio de Catering avanzado (showcooking, barras temáticas, etc.): Consultar.</li>
+                        <li>Equipo de sonido y DJ profesional: Desde [AAA]€.</li>
+                        <li>Animación infantil / Fotomatón / Otros entretenimientos: Consultar tarifas.</li>
+                        <li>Proyector y material audiovisual: Desde [BBB]€.</li>
                     </ul>
                 </article>
-                <p>Para un presupuesto detallado y adaptado a tus necesidades, por favor <a href="contacto.html">contacta con nosotros</a>.</p>
+                <p><strong>Nota:</strong> Todos los precios son orientativos y pueden variar según la temporada, el día de la semana y los servicios específicos contratados. IVA no incluido (o incluido, especificar). Te recomendamos solicitar un presupuesto personalizado.</p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>© <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
             <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
         </div>
     </footer>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</footer> <script>
+        // Script del Menú Hamburguesa
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -84,81 +88,30 @@
                 
                 if (isExpanded) {
                     navToggle.setAttribute('aria-label', 'Cerrar menú');
-                    document.body.style.overflow = 'hidden'; // Deshabilitar scroll del body
+                    document.body.style.overflow = 'hidden';
                 } else {
                     navToggle.setAttribute('aria-label', 'Abrir menú');
-                    document.body.style.overflow = ''; // Habilitar scroll del body
+                    document.body.style.overflow = '';
                 }
             });
 
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('nav-menu--visible')) {
-                        navMenu.classList.remove('nav-menu--visible');
-                        navToggle.classList.remove('is-active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navToggle.setAttribute('aria-label', 'Abrir menú');
-                        document.body.style.overflow = ''; // Habilitar scroll del body al cerrar con enlace
+                    if (window.innerWidth <= 820 && navMenu.classList.contains('nav-menu--visible')) {
+                         navMenu.classList.remove('nav-menu--visible');
+                         navToggle.classList.remove('is-active');
+                         navToggle.setAttribute('aria-expanded', 'false');
+                         navToggle.setAttribute('aria-label', 'Abrir menú');
+                         document.body.style.overflow = '';
                     }
                 });
             });
         }
 
-        // Script del año en el footer
+        // Script del Año
         const yearSpan = document.getElementById('year');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
-        }
-        
-        // Script del contador de caracteres (solo en contacto.html)
-        if (document.body.contains(document.getElementById('descripcion'))) { // Ejecutar solo si existe el textarea
-            const textarea = document.getElementById('descripcion');
-            const charCountSpan = document.getElementById('char-count');
-            if (textarea && charCountSpan) {
-                textarea.addEventListener('input', function() {
-                    charCountSpan.textContent = this.value.length;
-                });
-            }
-        }
-
-        // Script del formulario Formspree (solo en contacto.html)
-        if (document.body.contains(document.getElementById('contact-form'))) { // Ejecutar solo si existe el formulario
-            var form = document.getElementById("contact-form");
-            if (form) {
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("form-status");
-                    var data = new FormData(event.target);
-                    var charCountSpanForForm = document.getElementById('char-count'); // Para resetearlo
-                    fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                            status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
-                            status.className = 'success';
-                            form.reset();
-                            if(charCountSpanForForm) charCountSpanForForm.textContent = 0;
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                } else {
-                                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                                }
-                                status.className = 'error';
-                            })
-                        }
-                    }).catch(error => {
-                        status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                        status.className = 'error';
-                    });
-                }
-                form.addEventListener("submit", handleSubmit)
-            }
         }
     </script>
 </body>

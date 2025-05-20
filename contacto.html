@@ -3,57 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - [Nombre de tu Negocio]</title>
+    <title>Contacto - Casino Principal Eventos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-    <div class="container header-container"> 
-
-        
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Principal</a></li>
-                <li><a href="nosotros.html">Saber más de nosotros</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="precios.html">Precios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
+        <div class="container header-container">
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="pagina-contenido">
             <div class="container">
                 <h2>Contacta con Nosotros</h2>
-                <p>¿Tienes alguna pregunta o quieres solicitar un presupuesto? Rellena el formulario o y nos pondremos en contacto contigo lo antes posible.</p>
+                <p>¿Tienes alguna pregunta, quieres solicitar un presupuesto o simplemente contarnos tu idea? Rellena el siguiente formulario o utiliza nuestros datos de contacto directo. ¡Estaremos encantados de atenderte en Casino Principal Eventos!</p>
                 
-                <form id="contact-form" action="https://formspree.io/f/mblobgng" method="POST">
+                <div class="contacto-info">
+                    <p><strong>Email:</strong> <a href="mailto:casinoprincipaleventos@gmail.com">casinoprincipaleventos@gmail.com</a></p>
+                    <p><strong>Teléfono:</strong> [Tu Número de Teléfono, ej: +34 976 000 000]</p>
+                    <p><strong>Dirección:</strong> Plaza del Jardín 5, 50100 La Almunia de Doña Godina, Zaragoza</p>
+                    <p><strong>Horario de atención (opcional):</strong> [Lunes a Viernes de 10:00 a 14:00 y de 17:00 a 20:00]</p>
+                </div>
+
+                <form id="contact-form" action="https://formspree.io/f/TU_ENDPOINT_DE_FORMSPREE" method="POST">
                     <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre y apellidos">
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
                     </div>
                     <div class="form-group">
                         <label for="telefono">Número de Teléfono (Opcional):</label>
-                        <input type="tel" id="telefono" name="telefono">
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripción del evento o solicitud:</label>
-                        <textarea id="descripcion" name="descripcion" rows="6" maxlength="1000" required></textarea>
+                        <textarea id="descripcion" name="descripcion" rows="6" maxlength="1000" required placeholder="Cuéntanos qué necesitas, tipo de evento, fecha aproximada, número de invitados, etc. (máx. 1000 caracteres)"></textarea>
                         <small><span id="char-count">0</span>/1000 caracteres</small>
                     </div>
+                     <div class="form-group">
+                        <input type="checkbox" id="privacidad" name="privacidad" value="aceptada" required>
+                        <label for="privacidad" style="display: inline; font-weight: normal;">He leído y acepto la <a href="#privacidad-modal" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</label> 
+                        </div>
                     <button type="submit" class="btn">Enviar Solicitud</button>
                 </form>
                 <p id="form-status"></p>
@@ -63,60 +71,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>© <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
             <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
         </div>
     </footer>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Contador de caracteres para el textarea
-        const textarea = document.getElementById('descripcion');
-        const charCountSpan = document.getElementById('char-count');
-        if (textarea) {
-            textarea.addEventListener('input', function() {
-                charCountSpan.textContent = this.value.length;
-            });
-        }
-
-        // Manejo del envío del formulario Formspree (opcional, para feedback al usuario)
-        var form = document.getElementById("contact-form");
-        if (form) {
-            async function handleSubmit(event) {
-                event.preventDefault();
-                var status = document.getElementById("form-status");
-                var data = new FormData(event.target);
-                fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
-                        status.className = 'success';
-                        form.reset();
-                        charCountSpan.textContent = 0; // Resetear contador
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                            } else {
-                                status.innerHTML = "Oops! Hubo un problema al enviar tu formulario. Inténtalo de nuevo más tarde.";
-                            }
-                            status.className = 'error';
-                        })
-                    }
-                }).catch(error => {
-                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario. Inténtalo de nuevo más tarde.";
-                    status.className = 'error';
-                });
-            }
-            form.addEventListener("submit", handleSubmit)
-        }
-    </script>
-</footer> <script>
+        // Script del Menú Hamburguesa
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -130,34 +91,34 @@
                 
                 if (isExpanded) {
                     navToggle.setAttribute('aria-label', 'Cerrar menú');
-                    document.body.style.overflow = 'hidden'; // Deshabilitar scroll del body
+                    document.body.style.overflow = 'hidden';
                 } else {
                     navToggle.setAttribute('aria-label', 'Abrir menú');
-                    document.body.style.overflow = ''; // Habilitar scroll del body
+                    document.body.style.overflow = '';
                 }
             });
 
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('nav-menu--visible')) {
-                        navMenu.classList.remove('nav-menu--visible');
-                        navToggle.classList.remove('is-active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navToggle.setAttribute('aria-label', 'Abrir menú');
-                        document.body.style.overflow = ''; // Habilitar scroll del body al cerrar con enlace
+                    if (window.innerWidth <= 820 && navMenu.classList.contains('nav-menu--visible')) {
+                         navMenu.classList.remove('nav-menu--visible');
+                         navToggle.classList.remove('is-active');
+                         navToggle.setAttribute('aria-expanded', 'false');
+                         navToggle.setAttribute('aria-label', 'Abrir menú');
+                         document.body.style.overflow = '';
                     }
                 });
             });
         }
 
-        // Script del año en el footer
+        // Script del Año
         const yearSpan = document.getElementById('year');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
         }
-        
-        // Script del contador de caracteres (solo en contacto.html)
-        if (document.body.contains(document.getElementById('descripcion'))) { // Ejecutar solo si existe el textarea
+
+        // Scripts específicos para contacto.html
+        if (document.body.contains(document.getElementById('descripcion'))) {
             const textarea = document.getElementById('descripcion');
             const charCountSpan = document.getElementById('char-count');
             if (textarea && charCountSpan) {
@@ -167,21 +128,18 @@
             }
         }
 
-        // Script del formulario Formspree (solo en contacto.html)
-        if (document.body.contains(document.getElementById('contact-form'))) { // Ejecutar solo si existe el formulario
+        if (document.body.contains(document.getElementById('contact-form'))) {
             var form = document.getElementById("contact-form");
             if (form) {
                 async function handleSubmit(event) {
                     event.preventDefault();
                     var status = document.getElementById("form-status");
                     var data = new FormData(event.target);
-                    var charCountSpanForForm = document.getElementById('char-count'); // Para resetearlo
+                    var charCountSpanForForm = document.getElementById('char-count');
                     fetch(event.target.action, {
                         method: form.method,
                         body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     }).then(response => {
                         if (response.ok) {
                             status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
@@ -192,9 +150,7 @@
                             response.json().then(data => {
                                 if (Object.hasOwn(data, 'errors')) {
                                     status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                } else {
-                                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                                }
+                                } else { status.innerHTML = "Oops! Hubo un problema al enviar tu formulario."; }
                                 status.className = 'error';
                             })
                         }

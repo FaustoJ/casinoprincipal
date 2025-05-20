@@ -6,8 +6,10 @@
     --secondary-color: #EAE0D5;  /* Beige más oscuro para fondos sutiles/bordes */
     --footer-bg-color: #4A4035;  /* Marrón oscuro para el fondo del footer */
     --light-text-color: #FFFFFF; /* Blanco para texto sobre fondos oscuros */
+    --dark-border-color: #000000; /* Para el borde del logo */
+    
     --container-width: 960px;
-    --header-height: 70px;
+    --header-height: 70px; /* Altura de la barra superior */
 }
 
 body {
@@ -15,8 +17,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color); /* Usando el nuevo fondo */
-    color: var(--text-color); /* Usando el nuevo color de texto */
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -30,8 +32,8 @@ body {
 }
 
 main {
-    flex-grow: 1; /* Hace que el main ocupe el espacio disponible */
-    padding-top: 20px; /* Espacio después del header */
+    flex-grow: 1;
+    padding-top: 20px;
     padding-bottom: 40px;
 }
 
@@ -46,7 +48,6 @@ a {
     color: var(--primary-color);
     text-decoration: none;
 }
-
 a:hover {
     text-decoration: underline;
 }
@@ -62,57 +63,82 @@ h3 { font-size: 1.8rem; }
 /* --- Encabezado y Navegación --- */
 header {
     background-color: var(--background-color);
-    padding: 0; /* El padding lo manejará el container */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* El header por encima del contenido normal */
     height: var(--header-height);
 }
 
-.hero-logo-container {
-    text-align: center; /* Esto puede quedarse, no interfiere */
-    margin-bottom: 25px; /* Espacio entre el logo y el título h1 */
-}
-
-
-#hero-logo {
-    display: block; /* Hace que la imagen se comporte como un bloque */
-    margin-left: auto; /* Centra el bloque horizontalmente */
-    margin-right: auto; /* Centra el bloque horizontalmente */
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 8px;
-    border: 2px solid #000000;
-}
-
-/* Contenedor del header para alinear elementos */
-.header-container { /* Nueva clase */
+.header-container { /* Contenedor dentro del header */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centra nav-menu en escritorio */
     align-items: center;
-    height: 100%; /* Para que ocupe toda la altura del header */
+    height: 100%;
+    position: relative; /* Para que el botón hamburguesa pueda usar este como referencia si fuera necesario */
 }
 
-.site-name-link {
-    font-size: 1.6rem; /* Ajusta según tus preferencias */
-    font-weight: bold;
+/* Navegación de Escritorio */
+nav.nav-menu { /* Contenedor de la lista de enlaces */
+    display: flex; /* Por defecto para escritorio */
+}
+
+nav.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinea los li horizontalmente */
+}
+
+nav.nav-menu ul li {
+    margin-left: 25px;
+}
+nav.nav-menu ul li:first-child {
+    margin-left: 0;
+}
+
+nav.nav-menu ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    text-decoration: none;
+}
+nav.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+nav.nav-menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+nav.nav-menu ul li a:hover {
     color: var(--primary-color);
     text-decoration: none;
 }
 
-/* Botón Hamburguesa */
+/* Botón Hamburguesa (oculto en escritorio) */
 .nav-toggle {
-    display: none; /* Oculto en escritorio por defecto */
+    display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1101; /* Por encima del menú desplegable si es necesario */
-    margin-left: auto; /* Empuja a la derecha si es necesario */
+    z-index: 1101; /* MUY IMPORTANTE: Encima del menú desplegable y header */
+    position: absolute; /* Para posicionarlo a la derecha del header-container en móvil */
+    right: 15px; /* Ajusta según el padding del .container */
+    top: 50%;
+    transform: translateY(-50%);
 }
-
 .hamburger-line {
     display: block;
     width: 28px;
@@ -123,175 +149,35 @@ header {
     border-radius: 2px;
 }
 
-/* Estilos para la navegación en escritorio */
-nav.nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Esto es para escritorio */
-}
-
-nav.nav-menu ul li {
-    margin-left: 20px; /* Ajusta el espaciado para escritorio */
-}
-nav.nav-menu ul li a {
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 1rem; /* Ajusta si es necesario */
-    padding: 5px 0;
-    position: relative;
-    text-decoration: none;
-
-}
-nav.nav-menu ul li a::after {
-content: '';
-position: absolute;
-width: 100%;
-transform: scaleX(0);
-height: 2px;
-bottom: -5px;
-left: 0;
-background-color: var(--primary-color);
-transform-origin: bottom right;
-transition: transform 0.25s ease-out;
-}
-nav.nav-menu ul li a:hover::after {
-transform: scaleX(1);
-transform-origin: bottom left;
-}
-nav.nav-menu ul li a:hover {
-color: var(--primary-color);
-}
-/* --- Media Queries para Responsividad (Navegación Móvil) --- */
-Comprendo. Parece que la solución anterior de intentar que el menú empujara el contenido no dio el resultado esperado, o prefieres un comportamiento de menú desplegable más clásico para móviles, donde se superpone al contenido de forma clara.
-
-Vamos a implementar un menú desplegable para móviles que:
-
-Se active con el botón hamburguesa.
-Se superponga al contenido de la página (sin empujarlo).
-Tenga un fondo sólido para que el contenido de detrás no interfiera.
-Ocupe el espacio vertical disponible debajo de la barra del encabezado.
-Tenga su propio scroll si los ítems del menú son muchos.
-Opcionalmente, bloquearemos el scroll del contenido de la página mientras el menú esté abierto.
-1. Reajustes en el CSS (style.css) para el Menú Móvil
-
-Vamos a volver a usar position: fixed para nav.nav-menu en la vista móvil. Esto lo fijará a la ventana del navegador, independientemente del scroll de la página.
-
-Busca la sección @media (max-width: 820px) en tu style.css. Dentro de esta, localiza y reemplaza toda la regla para nav.nav-menu y sus hijos (ul, li, a) con lo siguiente. También ajustaremos .nav-toggle y .header-container levemente para este contexto.
-
-CSS
-
-@media (max-width: 820px) {
-    .header-container {
-        justify-content: flex-end; /* Mantiene el botón hamburguesa a la derecha */
-        /* flex-wrap: wrap; Ya no es tan necesario si el menú es fixed */
-    }
-
-    .nav-toggle {
-        display: block; /* Mostrar botón hamburguesa en móvil */
-        z-index: 1101; /* Asegura que el botón esté encima del menú y otros elementos */
-        /* Los demás estilos de .nav-toggle y .hamburger-line se mantienen como estaban */
-    }
-
-    nav.nav-menu {
-    display: none; /* Fundamental: oculto por defecto */
-    /* Todas las demás propiedades se definirán cuando sea visible para simplificar */
-}
-
-nav.nav-menu.nav-menu--visible {
-    display: block !important; /* ¡Importante! para forzar la visualización */
-    position: fixed !important;
-    top: 50px !important; /* Un valor fijo y obvio desde arriba */
-    left: 10% !important; /* Un valor fijo y obvio desde la izquierda */
-    width: 80% !important; /* Un ancho obvio */
-    height: 300px !important; /* Una altura obvia */
-    background-color: red !important; /* Un color de fondo muy visible */
-    z-index: 9999 !important; /* Un z-index extremadamente alto para asegurar que esté encima */
-    padding: 20px;
-    overflow: auto; /* Por si el contenido interno se desborda */
-}
-
-    /* Estructura interna del menú desplegable */
-    nav.nav-menu.nav-menu--visible ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav.nav-menu.nav-menu--visible ul li a {
-    display: block;
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid white;
-    color: white;
-    text-decoration: none;
-}
-
-nav.nav-menu.nav-menu--visible ul li:last-child a {
-    border-bottom: none;
-}
-
-    nav.nav-menu ul li {
-        margin: 0; /* Sin márgenes entre los li */
-        width: 100%; /* Cada li ocupa todo el ancho */
-    }
-
-    nav.nav-menu ul li a {
-        display: block; /* Hace que el enlace ocupe todo el 'li' */
-        padding: 18px 25px; /* Espaciado interno para cada enlace, facilita el toque */
-        text-align: center; /* Centra el texto del enlace */
-        border-bottom: 1px solid var(--secondary-color); /* Línea separadora sutil */
-        color: var(--text-color);
-        font-size: 1.1rem;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-
-    nav.nav-menu ul li a:hover,
-    nav.nav-menu ul li a:focus { /* :focus para accesibilidad con teclado */
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-    }
-
-    nav.nav-menu ul li:last-child a {
-        border-bottom: none; /* El último elemento no necesita borde inferior */
-    }
-
-    nav.nav-menu ul li a::after { /* El efecto de subrayado del escritorio no se usa aquí */
-        display: none;
-    }
-
-    /* Estilos para el botón hamburguesa activo (cuando se transforma en "X") se mantienen */
-    .nav-toggle.is-active .hamburger-line:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .nav-toggle.is-active .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-    .nav-toggle.is-active .hamburger-line:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-}
-
 /* --- Sección Hero (Página Principal) --- */
 #hero {
     background-color: var(--secondary-color);
     color: var(--text-color);
-    /* ANTES: padding: 60px 0; */
-    padding: 60px 0 30px 0; /* padding-top sigue 60px, padding-bottom reducido a 30px */
+    padding: 60px 0 30px 0;
     text-align: center;
-    /* ANTES: margin-bottom: 40px; */
-    margin-bottom: 20px; /* margin-bottom reducido a 20px */
+    margin-bottom: 20px;
+}
+.hero-logo-container {
+    margin-bottom: 25px;
+}
+#hero-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid var(--dark-border-color);
 }
 #hero h1 {
-    color: var(--primary-color); /* Texto más oscuro sobre fondo claro */
+    color: var(--primary-color);
     font-size: 2.8rem;
     margin-bottom: 0.5em;
 }
 #hero p {
     font-size: 1.3rem;
 }
-
 
 /* --- Servicios Destacados (Página Principal) --- */
 #servicios-destacados .servicios-grid {
@@ -300,253 +186,132 @@ nav.nav-menu.nav-menu--visible ul li:last-child a {
     gap: 30px;
     margin-top: 20px;
 }
-
 .servicio-card {
     background-color: var(--light-text-color);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    overflow: hidden; /* Para que la imagen no se salga si es más grande */
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.servicio-card a {
-    display: block;
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-.servicio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.servicio-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
-    border-radius: 8px 8px 0 0;
-}
-
-.servicio-card h3 {
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    margin: 15px 20px 10px;
-    text-align: left;
-}
-
-.servicio-card p {
-    font-size: 1rem;
-    padding: 0 20px 20px;
-    text-align: left;
-    min-height: 60px; /* Para alinear tarjetas con diferente texto */
-}
+.servicio-card a { display: block; text-decoration: none; color: var(--text-color); }
+.servicio-card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.servicio-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px 8px 0 0; }
+.servicio-card h3 { font-size: 1.6rem; color: var(--primary-color); margin: 15px 20px 10px; text-align: left; }
+.servicio-card p { font-size: 1rem; padding: 0 20px 20px; text-align: left; min-height: 60px; }
 
 /* --- Estilos para Páginas de Contenido General --- */
-.pagina-contenido {
-    padding: 20px 0;
-}
-.pagina-contenido h2 {
-    margin-bottom: 1em;
-}
-.pagina-contenido p, .pagina-contenido ul {
-    margin-bottom: 1.2em;
-    font-size: 1.1rem;
-}
-.pagina-contenido ul {
-    list-style: disc;
-    padding-left: 25px;
-}
-.pagina-contenido .imagen-destacada {
-    width: 70%;
-    margin: 0 auto 30px auto; /* Centrada */
-    border: 3px solid var(--secondary-color);
-}
+.pagina-contenido { padding: 20px 0; }
+.pagina-contenido h2 { margin-bottom: 1em; }
+.pagina-contenido p, .pagina-contenido ul { margin-bottom: 1.2em; font-size: 1.1rem; }
+.pagina-contenido ul { list-style: disc; padding-left: 25px; }
+.pagina-contenido .imagen-destacada { width: 70%; margin: 0 auto 30px auto; border: 3px solid var(--secondary-color); }
 
 /* --- Galería --- */
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-.galeria-item {
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.galeria-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-.galeria-item p {
-    font-size: 0.9rem;
-    color: #555;
-}
+.galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.galeria-item { background-color: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.galeria-item img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 10px; }
+.galeria-item p { font-size: 0.9rem; color: #555; }
 
 /* --- Precios --- */
-.precio-item {
-    background-color: #fff; /* Fondo blanco o muy claro */
-    border: 1px solid var(--secondary-color); /* Borde con color secundario */
-    border-left: 5px solid var(--primary-color);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 0 8px 8px 0;
-}
-.precio-item h3 {
-    margin-top: 0;
-    color: var(--primary-color);
-}
-.precio-item strong {
-    font-weight: bold;
-}
-
+.precio-item { background-color: #f9f9f9; border: 1px solid #e0e0e0; border-left: 5px solid var(--primary-color); padding: 20px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+.precio-item h3 { margin-top: 0; color: var(--primary-color); }
+.precio-item strong { font-weight: bold; }
 
 /* --- Formulario de Contacto --- */
-#contact-form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-top: 30px;
-}
-.form-group {
-    margin-bottom: 20px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--text-color);;
-}
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-.form-group small {
-    display: block;
-    margin-top: 5px;
-    color: #777;
-}
-.btn {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-}
-.btn:hover {
-    background-color: #8c6f41; /* Un marrón más oscuro para el hover */
-    text-decoration: none;
-}
-.contacto-info {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-}
-.contacto-info p {
-    margin-bottom: 0.5em;
-}
-#form-status {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-}
-#form-status.success {
-    background-color: #e6ffed;
-    color: #006622;
-    border: 1px solid #99e6b3;
-}
-#form-status.error {
-    background-color: #ffe6e6;
-    color: #990000;
-    border: 1px solid #ffb3b3;
-}
-
+#contact-form { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 30px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+.form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group small { display: block; margin-top: 5px; color: #777; }
+.btn { background-color: var(--primary-color); color: var(--light-text-color); padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; transition: background-color 0.3s ease; }
+.btn:hover { background-color: #8c6f41; text-decoration: none; }
+.contacto-info { margin-bottom: 30px; padding: 20px; background-color: var(--secondary-color); border-radius: 8px; }
+.contacto-info p { margin-bottom: 0.5em; }
+#form-status { margin-top: 20px; padding: 10px; border-radius: 5px; }
+#form-status.success { background-color: #e6ffed; color: #006622; border: 1px solid #99e6b3; }
+#form-status.error { background-color: #ffe6e6; color: #990000; border: 1px solid #ffb3b3; }
 
 /* --- Mapa de Ubicación --- */
-.mapa-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%; /* Proporción 16:9 */
-    position: relative;
-    height: 0;
-    border: 3px solid var(--secondary-color);
-    border-radius: 8px;
-    margin: 30px 0;
-}
-.mapa-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
+.mapa-responsive { overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0; border: 3px solid var(--secondary-color); border-radius: 8px; margin: 30px 0; }
+.mapa-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; }
 
 /* --- Pie de Página --- */
-footer {
-    background-color: var(--footer-bg-color);
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 25px 0;
-    margin-top: auto; /* Empuja el footer al final */
-}
-footer p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-}
-footer a {
-    color: var(--secondary-color);
-}
+footer { background-color: var(--footer-bg-color); color: var(--light-text-color); text-align: center; padding: 25px 0; margin-top: auto; }
+footer p { margin: 5px 0; font-size: 0.9rem; }
+footer a { color: var(--secondary-color); }
+footer a:hover { color: var(--light-text-color); }
 
-footer a:hover {
-    color: var(--light-text-color);
-}
+/* --- Media Queries para Responsividad (Navegación Móvil) --- */
+@media (max-width: 820px) { /* Breakpoint para móvil */
+    .header-container {
+        justify-content: flex-end; /* Mueve el contenido (botón hamburguesa) a la derecha */
+    }
 
-/* --- Media Queries para Responsividad (Ejemplo Básico) --- */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        align-items: center;
+    nav.nav-menu { /* Ocultar la navegación de escritorio en móvil */
+        display: none;
     }
-    #logo { margin-bottom: 10px; }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%; /* Para que ocupe todo el ancho */
+
+    .nav-toggle { /* Mostrar el botón hamburguesa */
+        display: block;
+        /* No es necesario position: absolute aquí si header-container lo alinea */
     }
-    nav ul li {
-        margin: 10px 0;
+    
+    /* Estilos para el menú desplegable cuando está visible */
+    /* La clase .nav-menu--visible será añadida por JavaScript */
+    /* Este es el contenedor que se mostrará como menú desplegable */
+    nav.nav-menu.nav-menu--visible {
+        display: flex; /* Cambiado a flex para controlar mejor el contenido interno */
+        flex-direction: column;
+        position: fixed; /* Fijo a la ventana gráfica */
+        top: var(--header-height); /* Debajo de la barra del header */
+        left: 0;
+        width: 100%; /* Ancho completo de la pantalla */
+        height: calc(100vh - var(--header-height)); /* Alto completo restante */
+        background-color: var(--background-color); /* Fondo sólido */
+        z-index: 1050; /* Por encima del contenido, por debajo del botón si se superpusieran */
+        overflow-y: auto; /* Scroll si los ítems exceden la altura */
+        padding: 0; /* Sin padding en el contenedor nav en sí */
+        box-shadow: 0 3px 5px rgba(0,0,0,0.15);
+        border-top: 1px solid var(--secondary-color);
+    }
+
+    /* Estilos para la lista UL dentro del menú desplegable móvil */
+    nav.nav-menu.nav-menu--visible ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 10px 0; /* Padding vertical para la lista de enlaces */
+    }
+
+    nav.nav-menu.nav-menu--visible ul li {
+        margin: 0; /* Sin margen entre li */
+        width: 100%;
+    }
+
+    nav.nav-menu.nav-menu--visible ul li a {
+        display: block;
+        padding: 16px 20px; /* Padding generoso para tocar fácil */
         text-align: center;
+        color: var(--text-color);
+        border-bottom: 1px solid var(--secondary-color);
+        text-decoration: none;
+        font-size: 1.1rem;
     }
-    nav ul li a::after { display: none; /* Ocultar subrayado en móvil si se prefiere */ }
-
-    #hero h1 { font-size: 2.2rem; }
-    #hero p { font-size: 1.1rem; }
-
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.5rem; }
-
-    .pagina-contenido .imagen-destacada {
-        width: 95%;
+    nav.nav-menu.nav-menu--visible ul li a:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
     }
+    nav.nav-menu.nav-menu--visible ul li:last-child a {
+        border-bottom: none;
+    }
+    nav.nav-menu.nav-menu--visible ul li a::after { /* Sin efecto de subrayado en móvil */
+        display: none;
+    }
+
+    /* Animación del botón hamburguesa a "X" */
+    .nav-toggle.is-active .hamburger-line:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-toggle.is-active .hamburger-line:nth-child(2) { opacity: 0; }
+    .nav-toggle.is-active .hamburger-line:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }

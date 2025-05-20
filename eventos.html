@@ -3,62 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celebración de Eventos - [Nombre de tu Negocio]</title>
+    <title>Celebración de Eventos - Casino Principal Eventos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-    <div class="container header-container"> 
-
-        
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html">Principal</a></li>
-                <li><a href="nosotros.html">Saber más de nosotros</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="precios.html">Precios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
+        <div class="container header-container">
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="nosotros.html">Saber más de nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="pagina-contenido">
             <div class="container">
                 <h2>Celebración de Eventos Memorables</h2>
-                <img src="images/detalle-eventos.jpg" alt="Detalle de un evento elegantemente decorado" class="imagen-destacada">
-                <p>[Aquí va una descripción detallada sobre tus servicios de celebración de eventos. Habla sobre bodas, bautizos, comuniones, qué tipo de planificación ofreces, qué incluye, tu filosofía de trabajo, etc. Hazlo atractivo e informativo.]</p>
-                <p>[Puedes añadir más párrafos, listas o detalles específicos sobre los tipos de eventos que manejas.]</p>
+                <img src="images/detalle-eventos.jpg" alt="Detalle de un evento elegante y bien decorado en Casino Principal Eventos" class="imagen-destacada">
+                <p>En Casino Principal Eventos, somos especialistas en convertir tus celebraciones más importantes en momentos inolvidables. Nos encargamos de la planificación y ejecución de una amplia variedad de eventos, poniendo especial cuidado en cada detalle para que tú solo te preocupes de disfrutar.</p>
+                <p>Desde bodas de ensueño hasta bautizos y comuniones con encanto, pasando por aniversarios, graduaciones o cualquier otra celebración que merezca un toque especial. Nuestro equipo te asesorará para encontrar las mejores soluciones adaptadas a tu estilo y presupuesto.</p>
                 <h3>Tipos de Eventos que Organizamos:</h3>
                 <ul>
-                    <li>Bodas de ensueño</li>
-                    <li>Bautizos y comuniones con encanto</li>
-                    <li>Aniversarios y celebraciones especiales</li>
-                    <li>Eventos corporativos y presentaciones</li>
-                    <li>¡Y mucho más! Cuéntanos tu idea.</li>
+                    <li><strong>Bodas:</strong> Planificación integral, decoración, catering, música, fotografía y todo lo necesario para el día más importante. Creamos ambientes románticos, modernos, rústicos... ¡lo que soñéis!</li>
+                    <li><strong>Bautizos y Comuniones:</strong> Celebraciones familiares llenas de alegría. Menús especiales para niños y adultos, animación, decoración temática y espacios seguros para los más pequeños.</li>
+                    <li><strong>Aniversarios y Cumpleaños:</strong> Desde fiestas íntimas hasta grandes celebraciones. Nos adaptamos al número de invitados y al tipo de festejo que desees.</li>
+                    <li><strong>Eventos Corporativos:</strong> Presentaciones de producto, reuniones de empresa, cenas de gala, team building. Ofrecemos un entorno profesional y todos los medios técnicos necesarios.</li>
+                    <li><strong>Graduaciones y Fiestas Temáticas:</strong> Dinos tu idea y la haremos realidad. Desde la decoración hasta el entretenimiento, creamos la atmósfera perfecta.</li>
                 </ul>
+                <h3>Nuestros Servicios Incluyen (personalizable):</h3>
+                <ul>
+                    <li>Asesoramiento y diseño del evento.</li>
+                    <li>Coordinación del día del evento.</li>
+                    <li>Selección y gestión de proveedores (catering, floristas, fotógrafos, música, etc.).</li>
+                    <li>Decoración y ambientación de espacios.</li>
+                    <li>Protocolo y gestión de invitados.</li>
+                </ul>
+                <p>Confía en nuestra experiencia y pasión. <a href="contacto.html">Contacta con nosotros</a> y empecemos a planificar tu evento perfecto en Casino Principal Eventos.</p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Nombre de tu Negocio]. Todos los derechos reservados.</p>
+            <p>© <span id="year"></span> Casino Principal Eventos. Todos los derechos reservados.</p>
             <p>Plaza del Jardín 5, La Almunia de Doña Godina</p>
         </div>
     </footer>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</footer> <script>
+        // Script del Menú Hamburguesa
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -72,81 +77,30 @@
                 
                 if (isExpanded) {
                     navToggle.setAttribute('aria-label', 'Cerrar menú');
-                    document.body.style.overflow = 'hidden'; // Deshabilitar scroll del body
+                    document.body.style.overflow = 'hidden';
                 } else {
                     navToggle.setAttribute('aria-label', 'Abrir menú');
-                    document.body.style.overflow = ''; // Habilitar scroll del body
+                    document.body.style.overflow = '';
                 }
             });
 
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('nav-menu--visible')) {
-                        navMenu.classList.remove('nav-menu--visible');
-                        navToggle.classList.remove('is-active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navToggle.setAttribute('aria-label', 'Abrir menú');
-                        document.body.style.overflow = ''; // Habilitar scroll del body al cerrar con enlace
+                    if (window.innerWidth <= 820 && navMenu.classList.contains('nav-menu--visible')) {
+                         navMenu.classList.remove('nav-menu--visible');
+                         navToggle.classList.remove('is-active');
+                         navToggle.setAttribute('aria-expanded', 'false');
+                         navToggle.setAttribute('aria-label', 'Abrir menú');
+                         document.body.style.overflow = '';
                     }
                 });
             });
         }
 
-        // Script del año en el footer
+        // Script del Año
         const yearSpan = document.getElementById('year');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
-        }
-        
-        // Script del contador de caracteres (solo en contacto.html)
-        if (document.body.contains(document.getElementById('descripcion'))) { // Ejecutar solo si existe el textarea
-            const textarea = document.getElementById('descripcion');
-            const charCountSpan = document.getElementById('char-count');
-            if (textarea && charCountSpan) {
-                textarea.addEventListener('input', function() {
-                    charCountSpan.textContent = this.value.length;
-                });
-            }
-        }
-
-        // Script del formulario Formspree (solo en contacto.html)
-        if (document.body.contains(document.getElementById('contact-form'))) { // Ejecutar solo si existe el formulario
-            var form = document.getElementById("contact-form");
-            if (form) {
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("form-status");
-                    var data = new FormData(event.target);
-                    var charCountSpanForForm = document.getElementById('char-count'); // Para resetearlo
-                    fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                            status.innerHTML = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.";
-                            status.className = 'success';
-                            form.reset();
-                            if(charCountSpanForForm) charCountSpanForForm.textContent = 0;
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                                } else {
-                                    status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                                }
-                                status.className = 'error';
-                            })
-                        }
-                    }).catch(error => {
-                        status.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                        status.className = 'error';
-                    });
-                }
-                form.addEventListener("submit", handleSubmit)
-            }
         }
     </script>
 </body>
