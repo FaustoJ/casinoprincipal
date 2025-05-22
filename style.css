@@ -221,11 +221,6 @@ nav.nav-menu ul li a:hover {
 .galeria-item img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 10px; }
 .galeria-item p { font-size: 0.9rem; color: #555; }
 
-/* --- Precios --- */
-.precio-item { background-color: #f9f9f9; border: 1px solid #e0e0e0; border-left: 5px solid var(--primary-color); padding: 20px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
-.precio-item h3 { margin-top: 0; color: var(--primary-color); }
-.precio-item strong { font-weight: bold; }
-
 /* --- Formulario de Contacto --- */
 #contact-form { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 30px; }
 .form-group { margin-bottom: 20px; }
