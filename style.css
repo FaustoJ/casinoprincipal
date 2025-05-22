@@ -11,7 +11,7 @@
     --secondary-color: #EAE0D5; 
     --footer-bg-color: #4A4035; 
     --light-text-color: #FFFFFF;
-    --dark-border-color: #000000;
+    /* --dark-border-color: #000000; Ya no se usa para el logo principal */
     
     --container-width: 960px;
     --header-height: 70px; 
@@ -93,7 +93,7 @@ header {
 
 /* Navegación de Escritorio (visible en escritorio, se transforma en móvil) */
 nav.nav-menu { 
-    display: flex; /* Para la barra horizontal de escritorio */
+    display: flex; 
 }
 
 nav.nav-menu ul {
@@ -145,7 +145,7 @@ nav.nav-menu ul li a:hover {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 8px; /* Ajustado para mejor control de tamaño y centrado */
+    padding: 10px; 
     z-index: 1101; 
 }
 .hamburger-line {
@@ -177,6 +177,7 @@ nav.nav-menu ul li a:hover {
     height: 200px;
     object-fit: contain;
     border-radius: 8px;
+    /* border: 2px solid var(--dark-border-color); /* BORDE ELIMINADO */
 }
 #hero h1 {
     color: var(--primary-color);
@@ -281,24 +282,23 @@ footer a:hover { color: var(--light-text-color); }
         /* align-items: center; Ya está en la regla base y se hereda */
     }
 
-    /* Mostrar logo móvil y estilizarlo para centrado vertical */
+    /* Mostrar logo móvil y estilizarlo */
     .mobile-logo-link {
-        display: inline-flex; /* Usar flex para centrar la imagen interna */
-        align-items: center;  /* Centra la imagen verticalmente dentro del enlace */
-        text-decoration: none;
+        display: inline-block; /* Para que esté en línea con el botón, pero se comporte como bloque para tamaño */
+        line-height: 0; /* Ayuda a controlar el espacio vertical si la imagen es más pequeña */
+        /* align-items: center; No es necesario si el header-container ya lo hace */
     }
     #mobile-header-logo {
         height: 45px; /* Altura del logo móvil. Ajusta según var(--header-height) */
         width: auto;
-        /* display: block; No es necesario si el padre es flex */
+        display: block; /* Para que ocupe el espacio dentro del enlace */
     }
 
-    .nav-toggle { /* Mostrar el botón hamburguesa */
-        display: inline-flex; /* Usar flex para centrar las líneas internas */
-        align-items: center;  /* Centra las líneas de la hamburguesa verticalmente DENTRO del botón */
-        justify-content: center;
-        /* padding: 8px; está en la regla base de .nav-toggle */
-        /* z-index: 1101; está en la regla base de .nav-toggle */
+    .nav-toggle { 
+        display: block; /* Mostrar el botón hamburguesa */
+        /* El padding y z-index ya están en la regla base de .nav-toggle y se heredan */
+        /* No necesita display:inline-flex ni align/justify-items si es un simple botón
+           y el header-container se encarga de su alineación vertical. */
     }
     
     /* El nav.nav-menu (que es la barra de escritorio) se convierte en el panel desplegable */
