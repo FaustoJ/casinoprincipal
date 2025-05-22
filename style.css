@@ -173,7 +173,6 @@ nav.nav-menu ul li a:hover {
     height: 200px;
     object-fit: contain;
     border-radius: 8px;
-    border: 2px solid var(--dark-border-color);
 }
 #hero h1 {
     color: var(--primary-color);
