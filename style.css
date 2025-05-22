@@ -109,7 +109,7 @@ nav.nav-menu ul li:first-child {
 
 nav.nav-menu ul li a {
     color: var(--text-color);
-    font-weight: 500;
+    font-weight: bold; /* Cambiado a bold para negrita en escritorio */
     font-size: 1rem;
     padding: 5px 0;
     position: relative;
@@ -188,8 +188,8 @@ nav.nav-menu ul li a:hover {
 /* --- Servicios Destacados (Página Principal) --- */
 #servicios-destacados .servicios-grid {
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Revertido */
-    gap: 30px; /* Revertido */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
     margin-top: 20px; 
 }
 .servicio-card {
@@ -198,10 +198,10 @@ nav.nav-menu ul li a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
     overflow: hidden; 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    max-width: 420px; /* Añadido para controlar ancho y ayudar al centrado del último */
-    margin-left: auto; /* Para centrar tarjetas si el grid en sí es más ancho que ellas */
-    margin-right: auto; /* Para centrar tarjetas */
-    width: 100%; /* Para que tome el ancho de la columna del grid hasta su max-width */
+    max-width: 420px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 100%; 
 }
 .servicio-card a { display: block; text-decoration: none; color: var(--text-color); } 
 .servicio-card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); } 
@@ -209,12 +209,10 @@ nav.nav-menu ul li a:hover {
 .servicio-card h3 { font-size: 1.6rem; color: var(--primary-color); margin: 15px 20px 10px; text-align: center; } 
 .servicio-card p { font-size: 1rem; padding: 0 20px 20px; text-align: center; min-height: 60px; } 
 
-/* Centrar la última tarjeta si queda sola en una fila */
 #servicios-destacados .servicios-grid > .servicio-card:last-child {
-    grid-column: 1 / -1;  /* Hace que la última tarjeta ocupe todas las columnas de su fila */
-    justify-self: center; /* Centra la tarjeta dentro del espacio que abarca (toda la fila) */
+    grid-column: 1 / -1;  
+    justify-self: center; 
 }
-
 
 /* --- Estilos para Páginas de Contenido General --- */
 .pagina-contenido { padding: 20px 0; } 
@@ -275,9 +273,14 @@ footer a:hover { color: var(--light-text-color); }
     #hero h1 {
         font-size: 1.6rem; 
         line-height: 1.3;  
+        margin-bottom: 0.3em; 
     }
     #hero p {
         font-size: 1.1rem; 
+    }
+
+    #servicios-destacados h2 { /* Texto "Descubre lo que Ofrecemos" más pequeño en móvil */
+        font-size: 1.6rem; 
     }
 
     .header-container {
@@ -339,6 +342,7 @@ footer a:hover { color: var(--light-text-color); }
         border-bottom: 1px solid var(--secondary-color);
         text-decoration: none;
         font-size: 1.1rem;
+        /* font-weight: bold; Ya lo hereda de la regla general */
     }
     nav.nav-menu.nav-menu--visible ul li a:hover {
         background-color: var(--secondary-color);
@@ -359,14 +363,8 @@ footer a:hover { color: var(--light-text-color); }
         width: 95%; 
     }
 
-    /* En pantallas pequeñas, el centrado del último elemento del grid puede no ser necesario */
-    /* o comportarse de forma diferente. Si es necesario, se puede resetear aquí */
     #servicios-destacados .servicios-grid > .servicio-card:last-child {
-        /* En móvil, es probable que auto-fit cree una sola columna por defecto */
-        /* por lo que el comportamiento de grid-column y justify-self podría no ser necesario */
-        /* o incluso podría quererse diferente. Por ahora, lo dejamos heredar. */
-        /* Si se quiere revertir específicamente para móvil: */
-        /* grid-column: auto; */
-        /* justify-self: auto; */
+        grid-column: auto; 
+        justify-self: auto; 
     }
 }
