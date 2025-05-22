@@ -286,7 +286,7 @@ footer a:hover { color: var(--light-text-color); }
     .mobile-logo-link {
         display: inline-block; /* Para que esté en línea con el botón, pero se comporte como bloque para tamaño */
         line-height: 0; /* Ayuda a controlar el espacio vertical si la imagen es más pequeña */
-        /* align-items: center; No es necesario si el header-container ya lo hace */
+        /* align-items: left; No es necesario si el header-container ya lo hace */
     }
     #mobile-header-logo {
         height: 45px; /* Altura del logo móvil. Ajusta según var(--header-height) */
