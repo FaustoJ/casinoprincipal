@@ -11,7 +11,7 @@
     --secondary-color: #EAE0D5; 
     --footer-bg-color: #4A4035; 
     --light-text-color: #FFFFFF;
-    /* --dark-border-color: #000000; Ya no se usa para el logo principal */
+    /* --dark-border-color: #000000; /* Comentado ya que se quitó el borde del logo */
     
     --container-width: 960px;
     --header-height: 70px; 
@@ -80,7 +80,7 @@ header {
     justify-content: center; /* Centra nav-menu en escritorio por defecto */
     align-items: center;     /* Centra verticalmente los elementos en el header */
     height: 100%;
-    position: relative; 
+    position: relative; /* Necesario si algún hijo directo se posicionara absolutamente respecto a él */
 }
 
 /* Logo para móvil - Oculto en escritorio por defecto */
@@ -91,9 +91,9 @@ header {
     display: block; 
 }
 
-/* Navegación de Escritorio (visible en escritorio, se transforma en móvil) */
+/* Navegación de Escritorio (visible en escritorio, se transforma en menú desplegable en móvil) */
 nav.nav-menu { 
-    display: flex; 
+    display: flex; /* Para la barra horizontal de escritorio */
 }
 
 nav.nav-menu ul {
@@ -145,8 +145,8 @@ nav.nav-menu ul li a:hover {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 10px; 
-    z-index: 1101; 
+    padding: 10px; /* Área de clic adecuada */
+    z-index: 1101; /* Asegura que esté encima del menú desplegable */
 }
 .hamburger-line {
     display: block;
@@ -177,7 +177,7 @@ nav.nav-menu ul li a:hover {
     height: 200px;
     object-fit: contain;
     border-radius: 8px;
-    /* border: 2px solid var(--dark-border-color); /* BORDE ELIMINADO */
+    /* Borde eliminado según solicitud anterior */
 }
 #hero h1 {
     color: var(--primary-color);
@@ -279,14 +279,14 @@ footer a:hover { color: var(--light-text-color); }
 
     .header-container {
         justify-content: space-between; /* Logo móvil a la izq, toggle a la der */
-        /* align-items: center; Ya está en la regla base y se hereda */
+        /* align-items: center; Se hereda de la regla base y sigue aplicando */
     }
 
     /* Mostrar logo móvil y estilizarlo */
     .mobile-logo-link {
-        display: inline-block; /* Para que esté en línea con el botón, pero se comporte como bloque para tamaño */
-        line-height: 0; /* Ayuda a controlar el espacio vertical si la imagen es más pequeña */
-        /* align-items: left; No es necesario si el header-container ya lo hace */
+        display: inline-block; /* Permite que esté en línea y se pueda dimensionar */
+        line-height: 0; /* Ayuda a controlar el espacio vertical si la imagen es más pequeña que la línea */
+        /* El centrado vertical se maneja por align-items: center en .header-container */
     }
     #mobile-header-logo {
         height: 45px; /* Altura del logo móvil. Ajusta según var(--header-height) */
@@ -296,9 +296,8 @@ footer a:hover { color: var(--light-text-color); }
 
     .nav-toggle { 
         display: block; /* Mostrar el botón hamburguesa */
-        /* El padding y z-index ya están en la regla base de .nav-toggle y se heredan */
-        /* No necesita display:inline-flex ni align/justify-items si es un simple botón
-           y el header-container se encarga de su alineación vertical. */
+        /* padding y z-index ya están en la regla base .nav-toggle y se heredan.
+           Su alineación vertical se maneja por align-items: center en .header-container. */
     }
     
     /* El nav.nav-menu (que es la barra de escritorio) se convierte en el panel desplegable */
